@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
         @chatroom,
         render_to_string(partial: "message", locals: { layout: false, message: @message })
       )
-      head :ok
+      redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
     else
       render "chatrooms/show", status: :unprocessable_entity
     end
