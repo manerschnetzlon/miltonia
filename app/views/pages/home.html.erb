@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Send a Milt to a friend!</h1>
+<ul>
+  <% @conversations.each do |conversation| %>
+    <li><%= link_to conversation.users.pluck(:pseudo), conversation_path(conversation) %></li>
+  <% end %>
+</ul>
+
+<br>
+
+<p>Create a new relation :</p>
+<%= simple_form_for (@participation) do |f| %>
+  <%= f.association :user, collection: User.where.not(id: current_user.id), label_method: :pseudo, value_method: :id %>
+  <%= f.submit %>
+<% end %>
