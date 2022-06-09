@@ -3,4 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :participants
+  has_many :conversations, through: :participants
+  has_many :milts, foreign_key: 'sender_id'
+  has_many :milts, foreign_key: 'receiver_id'
 end
