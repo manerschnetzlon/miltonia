@@ -8,13 +8,14 @@ class ParticipationsController < ApplicationController
       other_user_p = Participation.new(conversation: conversation, user: User.find(params[:participation][:user_id]))
       something_went_wrong unless current_user_p.save && other_user_p.save
     end
+    authorize conversation
     redirect_to conversation_path(conversation)
   end
 
   private
 
   def something_went_wrong
-    redirect_to root_path, flash: { error: "Something went wrong..." }
+    redirect_to home_path, flash: { error: "Something went wrong..." }
   end
 
   def find_conversation

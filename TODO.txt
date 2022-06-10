@@ -1,6 +1,5 @@
-- Pundit for conversations
+- Pundit for conversations OK
 - Broadcast for conversations OK
-- rm chatroom et messages
 - Envoyer Milt 1x / 20min
 - Figma
 - Regler DateTime
