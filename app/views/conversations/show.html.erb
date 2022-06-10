@@ -1,2 +1,22 @@
-<%= @conversation.name %>
-<h1>Hello <%= @conversation.users.pluck(:pseudo) %></h1>
+<div class="container chatroom"
+  data-controller="conversation-subscription"
+  data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
+>
+  <h1>Hello <%= @conversation.users.pluck(:pseudo) %></h1>
+  <h2>#<%= @conversation.name %></h2>
+
+  <div class="messages" data-conversation-subscription-target="milts">
+    <% @conversation.milts.each do |milt| %>
+      <%= render "milts/milt", milt: milt %>
+
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@conversation, @milt],
+    html: {class: "d-flex"} do |f|
+  %>
+    <%= f.input :sender_id, as: :hidden, input_html: { value: current_user.id } %>
+    <%= f.input :receiver_id, as: :hidden, input_html: { value: @conversation.users.where.not(id: current_user.id).first.id } %>
+    <%= f.submit "🌸", class: "btn btn-primary mb-3" %>
+  <% end %>
+</div>

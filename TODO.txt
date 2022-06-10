@@ -1,3 +1,8 @@
 - Pundit for conversations
-- Broadcast for conversations
+- Broadcast for conversations OK
+- rm chatroom et messages
+- Envoyer Milt 1x / 20min
 - Figma
+- Regler DateTime
+- Couleur conversation
+- Messages de chaque côté
