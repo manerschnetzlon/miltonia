@@ -8,7 +8,7 @@ class MiltsController < ApplicationController
     if milt.save
       ConversationChannel.broadcast_to(
         conversation,
-        render_to_string(partial: "milt", locals: {milt: milt})
+        render_to_string(partial: "milt", locals: { milt: milt })
       )
       redirect_to conversation_path(conversation, anchor: "milt-#{milt.id}")
     else

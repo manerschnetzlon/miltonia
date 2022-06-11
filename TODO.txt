@@ -2,6 +2,6 @@
 - Broadcast for conversations OK
 - Envoyer Milt 1x / 20min
 - Figma
-- Regler DateTime
+- Regler Time Zone OK
 - Couleur conversation
-- Messages de chaque côté
+- Messages de chaque côté WIP
