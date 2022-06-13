@@ -4,4 +4,5 @@
 - Figma
 - Regler Time Zone OK
 - Couleur conversation
-- Messages de chaque côté WIP
+- Messages de chaque côté OK
+- Scroller au dernier message en ouvrant la conversation OK

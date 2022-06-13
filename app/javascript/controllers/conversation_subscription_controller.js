@@ -13,24 +13,18 @@ export default class extends Controller {
   static targets = ["milts"]
 
   connect() {
+    this.miltsTarget.scrollTop = this.miltsTarget.scrollHeight
     this.channel = createConsumer().subscriptions.create({
       channel: "ConversationChannel",
       id: this.conversationIdValue
     }, {
       received: data => {
-        console.log(data)
         const parser = new DOMParser();
         const document = parser.parseFromString(data.html, "text/html");
         const milt = document.querySelector("div")
-        if (this.#isMiltSenderCurrentUser(data)) {
-          milt.classList.add("milt-current-user")
-        }
-        else {
-          milt.classList.remove("milt-current-user")
-        }
+        this.#setClassForCurrentUser(milt, data)
         this.miltsTarget.appendChild(milt)
         this.miltsTarget.scrollTo(0, this.miltsTarget.scrollHeight)
-        // this.connect()
       }
     })
     console.log(`Subscribed to the conversation with the id ${this.conversationIdValue}.`)
@@ -41,12 +35,11 @@ export default class extends Controller {
     this.channel.unsubscribe()
   }
 
-  // #insertMiltAndScrollDown(data) {
-  //   this.miltsTarget.insertAdjacentHTML("beforeend", data)
-  //   this.miltsTarget.scrollTo(0, this.miltsTarget.scrollHeight)
-  // }
-
-  #isMiltSenderCurrentUser(data) {
-    return data.user_id === this.userIdValue
+  #setClassForCurrentUser(milt, data) {
+    if (data.user_id === this.userIdValue) {
+      milt.classList.add("milt-current-user")
+    } else {
+      milt.classList.remove("milt-current-user")
+    }
   }
 }
