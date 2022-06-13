@@ -7,7 +7,8 @@ import {
 
 export default class extends Controller {
   static values = {
-    conversationId: Number
+    conversationId: Number,
+    userId: Number
   }
   static targets = ["milts"]
 
@@ -19,16 +20,17 @@ export default class extends Controller {
       received: data => {
         console.log(data)
         const parser = new DOMParser();
-        const document = parser.parseFromString(data, "text/html");
+        const document = parser.parseFromString(data.html, "text/html");
         const milt = document.querySelector("div")
-        if (this.#isMiltSenderCurrentUser) {
-          milt.classList.remove("milt-current-user")
+        if (this.#isMiltSenderCurrentUser(data)) {
+          milt.classList.add("milt-current-user")
         }
         else {
-          milt.classList.add("milt-current-user")
+          milt.classList.remove("milt-current-user")
         }
         this.miltsTarget.appendChild(milt)
         this.miltsTarget.scrollTo(0, this.miltsTarget.scrollHeight)
+        // this.connect()
       }
     })
     console.log(`Subscribed to the conversation with the id ${this.conversationIdValue}.`)
@@ -45,6 +47,6 @@ export default class extends Controller {
   // }
 
   #isMiltSenderCurrentUser(data) {
-    data.user_id === this.userIdValue
+    return data.user_id === this.userIdValue
   }
 }
