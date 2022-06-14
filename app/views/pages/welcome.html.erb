@@ -1,2 +1,3 @@
-<h1>Welcome to Miltonia 🌸</h1>
-<%= link_to "Enter", home_path %>
+<div class="logo-welcome-page"><%= render inline: Rails.root.join("app/assets/images/milt.svg").read %></div>
+<h1 class="miltonia-title">Miltonia</h1>
+<%= link_to "Get started", home_path, class: "btn-light" %>

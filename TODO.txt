@@ -1,8 +1,11 @@
-- Pundit for conversations OK
 - Broadcast for conversations OK
-- Envoyer Milt 1x / 20min
-- Figma
-- Regler Time Zone OK
-- Couleur conversation
+- Pundit for conversations OK
 - Messages de chaque côté OK
 - Scroller au dernier message en ouvrant la conversation OK
+- Figma OK
+- Regler Time Zone OK
+- Definir systeme de points WIP
+- Envoyer Milt 1x / 21min / personne
+- Achivments
+- Notifications
+- Dessiner skins
