@@ -8,4 +8,15 @@
 - Envoyer Milt 1x / 21min / personne
 - Achivments
 - Notifications
-- Dessiner skins
+
+- Welcome page OK
+- Forms OK
+- Footer OK
+- Home
+- Show
+- Reglages (logout)
+- Avatar + couleur DB
+- Personnaliser Avatar
+- Reserve Milts DB
+- Decompte Milts
+- Rechargement Milts

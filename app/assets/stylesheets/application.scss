@@ -13,6 +13,9 @@
 
 body {
   background-color: $miltonia-dark;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
 }
 
 a {
@@ -21,7 +24,7 @@ a {
 }
 
 .container {
-  height: 100vh;
+  min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,0 +1,18 @@
+<div class="footer">
+  <div class="footer-btn">
+    <%= render inline: Rails.root.join("app/assets/images/xmark.svg").read %>
+  </div>
+  <div class="footer-row row d-flex flex-row">
+    <div class="footer-icon col-4">
+      <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+    </div>
+    <div class="footer-icon footer-icon-min col-4">
+    </div>
+    <div class="footer-icon footer-icon-min col-2">
+      <%= render inline: Rails.root.join("app/assets/images/chart.svg").read %>
+    </div>
+    <div class="footer-icon footer-icon-min col-2">
+      <%= render inline: Rails.root.join("app/assets/images/gear.svg").read %>
+    </div>
+  </div>
+</div>
