@@ -15,10 +15,19 @@ body {
   background-color: $miltonia-dark;
 }
 
+a {
+  text-decoration: none;
+  color: $miltonia-ivory;
+}
+
 .container {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.italic {
+  font-style: italic;
 }
