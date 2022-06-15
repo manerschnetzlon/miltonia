@@ -12,7 +12,7 @@
 - Welcome page OK
 - Forms OK
 - Footer OK
-- Home
+- Home OK
 - Show
 - Reglages (logout)
 - Avatar + couleur DB
@@ -20,3 +20,10 @@
 - Reserve Milts DB
 - Decompte Milts
 - Rechargement Milts
+- Pundit conversation Minette ?
+- Front modal
+- Footer only on home / show ...
+- Footer btn dynamic
+
+- Methode other participant
+- Methode mettre en forme other participant

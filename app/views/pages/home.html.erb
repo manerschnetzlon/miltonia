@@ -1,14 +1,54 @@
-<h1>Send a Milt to a friend!</h1>
-<ul>
-  <% @conversations.each do |conversation| %>
-    <li><%= link_to conversation.users.pluck(:pseudo), conversation_path(conversation) %></li>
-  <% end %>
-</ul>
+<div class="container-home">
+  <div class="top-home">
+    <div class="avatar-home">
+      <%= image_tag 'chick' %>
+    </div>
+    <h1><%= current_user.pseudo %></h1>
+  </div>
 
-<br>
+  <div class="conversations-home">
+    <% @conversations.each do |conversation| %>
+      <div class="conversation-home">
+        <div class="avatar-correspondant-home">
+          <div class="avatar-home-mini">
+            <%= image_tag 'rabbit' %>
+          </div>
+        </div>
+        <div class="pseudo-correspondant-home">
+          <h2>
+            <%= link_to conversation.users.where.not(id: current_user.id).first.pseudo, conversation_path(conversation) %>
+          </h2>
+        </div>
+        <div class="notification-home">
+          <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<p>Create a new relation :</p>
-<%= simple_form_for (@participation) do |f| %>
-  <%= f.association :user, collection: User.where.not(id: current_user.id), label_method: :pseudo, value_method: :id %>
-  <%= f.submit %>
-<% end %>
+<%#= simple_form_for (@participation) do |f| %>
+  <%#= f.association :user, collection: User.where.not(id: current_user.id), label_method: :pseudo, value_method: :id %>
+  <%#= f.submit %>
+<%# end %>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New conversation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for (@participation) do |f| %>
+          <%= f.association :user, collection: User.where.not(id: current_user.id), label_method: :pseudo, value_method: :id %>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <%= f.submit class:"btn btn-primary", value: "Create" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
