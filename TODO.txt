@@ -4,26 +4,29 @@
 - Scroller au dernier message en ouvrant la conversation OK
 - Figma OK
 - Regler Time Zone OK
-- Definir systeme de points WIP
-- Envoyer Milt 1x / 21min / personne
-- Achivments
-- Notifications
-
 - Welcome page OK
 - Forms OK
 - Footer OK
 - Home OK
-- Show
-- Reglages (logout)
-- Avatar + couleur DB
-- Personnaliser Avatar
-- Reserve Milts DB
-- Decompte Milts
-- Rechargement Milts
+- Reserve Milts DB OK
+- Decompte Milts OK
 - Pundit conversation Minette ? OK
-- Front modal
+- Front modal OK
+
+- Definir systeme de points WIP
+
+- Show
 - Footer only on home / show ...
 - Footer btn dynamic
+- Reglages (logout)
+- Notifications
+- Achivments
+- Avatar + couleur DB
+- Personnaliser Avatar
+- Rechargement Milts
 
 - Methode other participant
 - Methode mettre en forme other participant
+
+- Proteger form new conversation
+- Value btn modal validation

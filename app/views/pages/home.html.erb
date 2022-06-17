@@ -40,15 +40,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New conversation</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Choose a friend : </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <%= simple_form_for (@participation) do |f| %>
-          <%= f.association :user, collection: User.where.not(id: current_user.id), label_method: :pseudo, value_method: :id %>
+          <%= f.association :user, collection: User.where.not(id: current_user.id), label_method: :pseudo, value_method: :id, include_blank: false %>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <%= f.submit class:"btn btn-primary", value: "Create" %>
+            <%= f.submit class: "modal-btn", value: "Validate", class: "btn btn-modal" %>
           </div>
         <% end %>
       </div>
