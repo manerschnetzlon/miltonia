@@ -8,7 +8,7 @@ gem 'rails', '~> 6.1.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.6.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -37,6 +37,10 @@ gem "pundit"
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form', github: 'heartcombo/simple_form'
+gem "nokogiri", ">= 1.13.6"
+gem "actionpack", ">= 6.1.5.1"
+gem "actionview", ">= 6.1.5.1"
+gem "rack", ">= 2.2.3.1"
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
