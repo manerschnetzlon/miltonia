@@ -1,9 +1,6 @@
 class MiltsController < ApplicationController
   def create
     conversation = Conversation.find(params[:conversation_id])
-    if current_user.milts_count < 1
-      redirect_to conversation_path(conversation)
-    end
 
     milt = Milt.new(milt_params)
     milt.conversation = conversation

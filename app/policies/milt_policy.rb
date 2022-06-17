@@ -7,6 +7,6 @@ class MiltPolicy < ApplicationPolicy
   end
 
   def create?
-    record.sender == user
+    record.sender == user && user.milts_count > 0
   end
 end
