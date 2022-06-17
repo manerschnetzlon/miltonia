@@ -7,11 +7,37 @@
 }
 
 .top-home {
-  height: 30%;
+  height: 27%;
+  border-bottom: solid 1px $miltonia-ivory;
+  width: 100vw;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 15px;
+
+  .milts-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      height: 35px;
+    }
+  }
+
+  h3 {
+    font-family: 'Yellowtail';
+    text-align: center;
+    color: $miltonia-corail;
+    font-size: xx-large;
+    margin: 0 12px 0 0;
+  }
+
   .avatar-home {
     background-color: $miltonia-light-blue;
-    height: 120px;
-    width: 120px;
+    height: 100px;
+    width: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,11 +46,17 @@
       height: 70%;
     }
   }
+
+  .infos-home {
+    width: 45%;
+  }
+
   h1 {
     font-family: 'Yellowtail';
     text-align: center;
     color: $miltonia-light-blue;
-    margin: 10px auto;
+    margin: 0 0 10px 0;
+    font-size: xxx-large;
   }
 }
 
@@ -32,6 +64,7 @@
   height: 70%;
   width: 100%;
   padding: 30px 50px;
+  overflow: scroll;
 
   .conversation-home {
     background: $miltonia-blue;

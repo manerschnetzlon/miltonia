@@ -22,6 +22,6 @@ class ParticipationsController < ApplicationController
   def find_conversation
     current_user_conversation = Conversation.includes(:participations).where("participations.user" => current_user)
     other_user_conversation = Conversation.includes(:participations).where("participations.user" => params[:participation][:user_id])
-    current_user_conversation.merge(other_user_conversation).first
+    (current_user_conversation & other_user_conversation).first
   end
 end

@@ -3,7 +3,15 @@
     <div class="avatar-home">
       <%= image_tag 'chick' %>
     </div>
-    <h1><%= current_user.pseudo %></h1>
+    <div class="infos-home">
+      <div>
+        <h1><%= current_user.pseudo %></h1>
+      </div>
+      <div class="milts-home">
+        <h3><%= current_user.milts_count %></h3>
+        <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+      </div>
+    </div>
   </div>
 
   <div class="conversations-home">
@@ -26,11 +34,6 @@
     <% end %>
   </div>
 </div>
-
-<%#= simple_form_for (@participation) do |f| %>
-  <%#= f.association :user, collection: User.where.not(id: current_user.id), label_method: :pseudo, value_method: :id %>
-  <%#= f.submit %>
-<%# end %>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

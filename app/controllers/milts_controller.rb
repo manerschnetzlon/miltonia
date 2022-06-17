@@ -1,7 +1,11 @@
 class MiltsController < ApplicationController
   def create
-    milt = Milt.new(milt_params)
     conversation = Conversation.find(params[:conversation_id])
+    if current_user.milts_count < 1
+      redirect_to conversation_path(conversation)
+    end
+
+    milt = Milt.new(milt_params)
     milt.conversation = conversation
     milt.sender = current_user
     authorize milt
@@ -9,6 +13,8 @@ class MiltsController < ApplicationController
     respond_to do |format|
       format.html do
         if milt.save
+          current_user.milts_count -= 1
+          render "conversations/show", status: :unprocessable_entity unless current_user.save
           html = render_to_string(partial: "milt", locals: { milt: milt })
           ConversationChannel.broadcast_to(
             conversation, {

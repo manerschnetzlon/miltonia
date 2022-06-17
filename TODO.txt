@@ -20,7 +20,7 @@
 - Reserve Milts DB
 - Decompte Milts
 - Rechargement Milts
-- Pundit conversation Minette ?
+- Pundit conversation Minette ? OK
 - Front modal
 - Footer only on home / show ...
 - Footer btn dynamic
