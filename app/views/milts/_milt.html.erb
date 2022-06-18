@@ -1,4 +1,4 @@
-<div id="milt-<%= milt.id %>" <%= "class=milt-current-user" if milt.sender == current_user %>>
+<div id="milt-<%= milt.id %>" <%= "class=milt-current-user" if milt.sender == current_user %>
   <small>
     <strong><%= milt.sender.pseudo %></strong>
     <i><%= milt.created_at.strftime("%a %b %e at %l:%M %p") %></i>

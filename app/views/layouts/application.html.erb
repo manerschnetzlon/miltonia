@@ -15,12 +15,6 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= yield %>
-      <%= render 'shared/flashes' %>
-    </div>
-    <% unless action_name == "welcome" || controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords" %>
-      <%= render 'shared/footer' %>
-    <% end %>
+    <%= yield %>
   </body>
 </html>

@@ -1,21 +1,46 @@
-<div class="container chatroom"
-  data-controller="conversation-subscription"
-  data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
-  data-conversation-subscription-user-id-value="<%= current_user.id %>"
->
-  <h1>Hello <%= @conversation.users.pluck(:pseudo) %></h1>
-  <h2>#<%= @conversation.name %></h2>
+<div class="container">
+  <div class="container-show">
+    <div class="top-show">
 
-  <div class="messages" data-conversation-subscription-target="milts">
-    <% @conversation.milts.each do |milt| %>
-      <%= render "milts/milt", milt: milt %>
+    </div>
+    <div class="conversation-show" data-controller="conversation-subscription"
+      data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
+      data-conversation-subscription-user-id-value="<%= current_user.id %>">
+      <div class="milts-show" data-conversation-subscription-target="milts">
+        <% @conversation.milts.each do |milt| %>
+          <%= render "milts/milt", milt: milt %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <%= simple_form_for [@conversation, @milt],
+      html: {class: "form-create-milt"}, remote: true do |f|
+    %>
+    <%= f.input :receiver_id, as: :hidden, input_html: { value: @conversation.users.where.not(id: current_user.id).first.id } %>
+    <%= f.button :button do %>
+      <div class="footer-btn btn-corail">
+        <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%# <div class="footer-btn btn-corail" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"> %>
+    <%#= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+  <%# </div> %>
+  <div class="footer-row row d-flex flex-row">
+    <%= link_to home_path, class:"footer-icon col-4 inactive-corail" do %>
+      <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+    <% end %>
+    <div class="footer-icon footer-icon-min col-4">
+    </div>
+    <%= link_to root_path, class:"footer-icon footer-icon-min col-2" do %>
+      <%= render inline: Rails.root.join("app/assets/images/chart.svg").read %>
+    <% end %>
+    <%= link_to root_path, class:"footer-icon footer-icon-min col-2" do %>
+      <%= render inline: Rails.root.join("app/assets/images/gear.svg").read %>
     <% end %>
   </div>
-
-  <%= simple_form_for [@conversation, @milt],
-    html: {class: "d-flex"}, remote: true do |f|
-  %>
-    <%= f.input :receiver_id, as: :hidden, input_html: { value: @conversation.users.where.not(id: current_user.id).first.id } %>
-    <%= f.submit "🌸", class: "btn btn-primary mb-3" %>
-  <% end %>
 </div>

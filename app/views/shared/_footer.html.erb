@@ -1,18 +1,18 @@
 <div class="footer">
-  <div class="footer-btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    <%= render inline: Rails.root.join("app/assets/images/xmark.svg").read %>
+  <div class="footer-btn <%= btn %>" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <%= render inline: Rails.root.join("app/assets/images/#{btn_svg}.svg").read %>
   </div>
   <div class="footer-row row d-flex flex-row">
-    <div class="footer-icon col-4">
+    <%= link_to home_path, class:"footer-icon col-4 #{home}" do %>
       <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
-    </div>
+    <% end %>
     <div class="footer-icon footer-icon-min col-4">
     </div>
-    <div class="footer-icon footer-icon-min col-2">
+    <%= link_to root_path, class:"footer-icon footer-icon-min col-2" do %>
       <%= render inline: Rails.root.join("app/assets/images/chart.svg").read %>
-    </div>
-    <div class="footer-icon footer-icon-min col-2">
+    <% end %>
+    <%= link_to root_path, class:"footer-icon footer-icon-min col-2" do %>
       <%= render inline: Rails.root.join("app/assets/images/gear.svg").read %>
-    </div>
+    <% end %>
   </div>
 </div>

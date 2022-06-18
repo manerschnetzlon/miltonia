@@ -1,54 +1,75 @@
-<div class="container-home">
-  <div class="top-home">
-    <div class="avatar-home">
-      <%= image_tag 'chick' %>
-    </div>
-    <div class="infos-home">
-      <div>
-        <h1><%= current_user.pseudo %></h1>
+<div class="container">
+  <div class="container-home">
+    <div class="top-home">
+      <div class="infos-home col-3">
+        <h3><%= current_user.pseudo %></h3>
       </div>
-      <div class="milts-home">
+      <div class="avatar-home col-4">
+        <%= image_tag 'chick' %>
+      </div>
+      <div class="milts-home active-svg col-3">
         <h3><%= current_user.milts_count %></h3>
         <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
       </div>
     </div>
-  </div>
 
-  <div class="conversations-home">
-    <% @conversations.each do |conversation| %>
-      <%= link_to conversation_path(conversation), class:"conversation-home" do %>
-        <div class="avatar-correspondant-home">
-          <div class="avatar-home-mini">
-            <%= image_tag 'rabbit' %>
+    <div class="conversations-home">
+      <% @conversations.ordered_by_time.each do |conversation| %>
+        <%= link_to conversation_path(conversation), class:"conversation-home" do %>
+          <div class="avatar-correspondant-home">
+            <div class="avatar-home-mini">
+              <%= image_tag 'rabbit' %>
+            </div>
           </div>
-        </div>
-        <div class="pseudo-correspondant-home">
-          <h2><%= conversation.users.where.not(id: current_user.id).first.pseudo %></h2>
-        </div>
-        <div class="notification-home">
-          <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Choose a friend : </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for (@participation) do |f| %>
-          <%= f.association :user, collection: User.where.not(id: current_user.id), label_method: :pseudo, value_method: :id, include_blank: false %>
-          <div class="modal-footer">
-            <%= f.submit class: "modal-btn", value: "Validate", class: "btn btn-modal" %>
+          <div class="pseudo-correspondant-home">
+            <h2><%= conversation.users.where.not(id: current_user.id).first.pseudo %></h2>
+          </div>
+          <div class="notification-home">
+            <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
           </div>
         <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Choose a friend : </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for (@participation) do |f| %>
+            <%= f.association :user, collection: User.where.not(id: current_user.id), label_method: :pseudo, value_method: :id, include_blank: false %>
+            <div class="modal-footer">
+              <%= f.submit "Validate", class: "modal-btn", class: "btn btn-modal" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
+  </div>
+
+  <%= render 'shared/flashes' %>
+</div>
+
+<div class="footer">
+  <div class="footer-btn btn-blue" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <%= render inline: Rails.root.join("app/assets/images/xmark.svg").read %>
+  </div>
+  <div class="footer-row row d-flex flex-row">
+    <%= link_to home_path, class:"footer-icon col-4 active-corail" do %>
+      <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+    <% end %>
+    <div class="footer-icon footer-icon-min col-4">
+    </div>
+    <%= link_to root_path, class:"footer-icon footer-icon-min col-2" do %>
+      <%= render inline: Rails.root.join("app/assets/images/chart.svg").read %>
+    <% end %>
+    <%= link_to root_path, class:"footer-icon footer-icon-min col-2" do %>
+      <%= render inline: Rails.root.join("app/assets/images/gear.svg").read %>
+    <% end %>
   </div>
 </div>

@@ -1,11 +1,11 @@
-.inactive-svg {
+.inactive-corail, .inactive-svg, .inactive-svg > path {
   fill: #FFE5D9;
 }
 
-.active-svg {
+.active-corail, .active-svg, .active-svg > path {
   fill: $miltonia-corail;
 }
 
-.white-svg {
+.white-svg, .white-svg > path  {
   fill: $miltonia-ivory;
 }

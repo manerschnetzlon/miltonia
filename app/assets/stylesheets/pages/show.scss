@@ -1,0 +1,19 @@
+.conversation-show {
+  height: 70%;
+  width: 100%;
+}
+
+.milts-show {
+  height: 94%;
+  overflow-y: scroll;
+  padding: 20px 50px 0 50px;
+  // -webkit-mask-image: linear-gradient(to bottom,black 10%,transparent 80%);
+  // mask-image: linear-gradient(to bottom,black 10%,transparent 80%);
+}
+
+#new_milt {
+  // border-top: 1px solid $gray-200;
+  // padding: 1rem;
+  margin: 0;
+  padding: 0;
+}

@@ -13,12 +13,12 @@
 - Pundit conversation Minette ? OK
 - Front modal OK
 - Proteger form new conversation OK
+- Footer btn OK
 
 - Definir systeme de points WIP
 
 - Show
-- Footer only on home / show ...
-- Footer btn dynamic
+- Broadcast when new conversation
 - Reglages (logout)
 - Notifications
 - Achivments

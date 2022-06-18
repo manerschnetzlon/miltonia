@@ -5,10 +5,11 @@
   margin-top: 15%;
 }
 
-// .simple_form {
-//   width: 70%;
-//   margin-bottom: 10px;
-// }
+.form-create-milt {
+  display: flex;
+  justify-content: center;
+  height: 0;
+}
 
 .form-label, .form-check-label {
   color: $miltonia-ivory;
