@@ -82,6 +82,11 @@
   }
 }
 
+.conversation-home:hover {
+  background-color: $miltonia-light-blue;
+  color: $miltonia-ivory;
+}
+
 .avatar-correspondant-home {
   display: flex;
   width: 25%;
@@ -104,11 +109,9 @@
 }
 
 .pseudo-correspondant-home {
-  a {
-    font-family: 'Yellowtail';
-  }
   h2 {
     margin: 0;
+    font-family: 'Yellowtail';
   }
 }
 

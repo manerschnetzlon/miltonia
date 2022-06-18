@@ -12,6 +12,7 @@
 - Decompte Milts OK
 - Pundit conversation Minette ? OK
 - Front modal OK
+- Proteger form new conversation OK
 
 - Definir systeme de points WIP
 
@@ -28,5 +29,4 @@
 - Methode other participant
 - Methode mettre en forme other participant
 
-- Proteger form new conversation
 - Value btn modal validation

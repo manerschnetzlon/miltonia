@@ -16,21 +16,19 @@
 
   <div class="conversations-home">
     <% @conversations.each do |conversation| %>
-      <div class="conversation-home">
+      <%= link_to conversation_path(conversation), class:"conversation-home" do %>
         <div class="avatar-correspondant-home">
           <div class="avatar-home-mini">
             <%= image_tag 'rabbit' %>
           </div>
         </div>
         <div class="pseudo-correspondant-home">
-          <h2>
-            <%= link_to conversation.users.where.not(id: current_user.id).first.pseudo, conversation_path(conversation) %>
-          </h2>
+          <h2><%= conversation.users.where.not(id: current_user.id).first.pseudo %></h2>
         </div>
         <div class="notification-home">
           <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
