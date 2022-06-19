@@ -1,16 +1,35 @@
 <div class="container">
-  <div class="container-show">
-    <div class="top-show">
-
-    </div>
-    <div class="conversation-show" data-controller="conversation-subscription"
+  <div class="container-show" data-controller="conversation-subscription"
       data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
       data-conversation-subscription-user-id-value="<%= current_user.id %>">
+    <div class="top-show">
+      <div class="infos-correspondant col-3">
+        <h3><%= @conversation.users.where.not(id: current_user.id).first.pseudo %></h3>
+      </div>
+      <div class="avatar-correspondant-show">
+        <div class="avatar-big">
+          <%= image_tag 'rabbit' %>
+        </div>
+      </div>
+      <div class="avatar-current-show">
+        <div class="avatar-middle">
+          <%= image_tag 'chick' %>
+        </div>
+      </div>
+      <div class="milts-home active-svg col-3">
+        <div data-conversation-subscription-target="count">
+          <%= render "milts/counter_milts", current_user: current_user %>
+        </div>
+        <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+      </div>
+    </div>
+    <div class="conversation-show">
       <div class="milts-show" data-conversation-subscription-target="milts">
         <% @conversation.milts.each do |milt| %>
           <%= render "milts/milt", milt: milt %>
         <% end %>
       </div>
+
     </div>
   </div>
 </div>

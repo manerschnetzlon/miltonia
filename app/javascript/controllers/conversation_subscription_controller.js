@@ -10,9 +10,10 @@ export default class extends Controller {
     conversationId: Number,
     userId: Number
   }
-  static targets = ["milts"]
+  static targets = ["milts", "count"]
 
   connect() {
+    console.log(this);
     this.miltsTarget.scrollTop = this.miltsTarget.scrollHeight
     this.channel = createConsumer().subscriptions.create({
       channel: "ConversationChannel",
@@ -25,6 +26,7 @@ export default class extends Controller {
         this.#setClassForCurrentUser(milt, data)
         this.miltsTarget.appendChild(milt)
         this.miltsTarget.scrollTo(0, this.miltsTarget.scrollHeight)
+        this.countTarget.innerHTML = data.html2
       }
     })
     console.log(`Subscribed to the conversation with the id ${this.conversationIdValue}.`)

@@ -13,9 +13,11 @@ class MiltsController < ApplicationController
           current_user.milts_count -= 1
           render "conversations/show", status: :unprocessable_entity unless current_user.save
           html = render_to_string(partial: "milt", locals: { milt: milt })
+          html2 = render_to_string(partial: "counter_milts", locals: { current_user: current_user })
           ConversationChannel.broadcast_to(
             conversation, {
               html: html,
+              html2: html2,
               user_id: current_user.id,
               conversation_id: conversation.id
             }

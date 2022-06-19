@@ -3,6 +3,42 @@
   width: 100%;
 }
 
+.top-show {
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+
+.infos-correspondant, .infos-current {
+  height: 95%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  h3 {
+    font-family: 'Yellowtail';
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: xx-large;
+    color: $miltonia-light-blue;
+  }
+}
+
+.avatar-correspondant-show {
+  position: absolute;
+  left: calc(50vw - 25%);
+  z-index: 1;
+  .avatar-big {
+    box-shadow: -5px 10px 30px #0f2b4f;
+  }
+}
+
+.avatar-current-show {
+  position: absolute;
+  right: calc(50vw - 25%);
+  .avatar-big {
+    box-shadow: -5px 10px 30px #0f2b4f;
+  }
+}
+
 .milts-show {
   height: 94%;
   overflow-y: scroll;
