@@ -22,6 +22,7 @@ class MiltsController < ApplicationController
               milts_count: milts_count,
               # sender_conversations: sender_conversations,
               receiver_conversations: receiver_conversations,
+              correspondant_id: current_user.correspondant(conversation).id,
               user_id: current_user.id,
               conversation_id: conversation.id
             }

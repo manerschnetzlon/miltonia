@@ -7,25 +7,25 @@ import {
 
 export default class extends Controller {
   static values = {
-    conversationId: Number,
+    conversationsId: Array,
     userId: Number
   }
   static targets = ["items"]
 
   connect() {
-    console.log(`TEST home conversations`)
-    // console.log(this.itemsTarget);
-
-    this.channel = createConsumer().subscriptions.create({
-      channel: "ConversationChannel",
-      id: this.conversationIdValue
-    }, {
-      received: data => {
-        if (data.user_id != this.userIdValue) {
-          this.itemsTarget.innerHTML = data.receiver_conversations
-        }
-       }
-     })
-     console.log(`Subscribed to the conversation with the id ${this.conversationIdValue}.`)
+    console.log(this.conversationsIdValue);
+    this.conversationsIdValue.forEach((conversationId) => {
+      this.channel = createConsumer().subscriptions.create({
+        channel: "ConversationChannel",
+        id: conversationId
+      }, {
+        received: data => {
+          if (data.correspondant_id == this.userIdValue) {
+            this.itemsTarget.innerHTML = data.receiver_conversations
+          }
+         }
+       })
+       console.log(`Subscribed to the conversation with the id ${conversationId}.`)
+    })
   }
 }

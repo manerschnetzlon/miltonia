@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="conversations-home" data-controller="home-conversations" data-home-conversations-target="items" data-home-conversations-conversation-id-value="66" data-home-conversations-user-id-value="<%= current_user.id %>">
+    <div class="conversations-home" data-controller="home-conversations" data-home-conversations-target="items" data-home-conversations-conversations-id-value="<%= current_user.conversations.pluck(:id) %>" data-home-conversations-user-id-value="<%= current_user.id %>">
       <%= render "milts/conversations", conversations: @conversations, user: current_user %>
     </div>
   </div>
