@@ -13,22 +13,8 @@
       </div>
     </div>
 
-    <div class="conversations-home">
-      <% @conversations.ordered_by_time.each do |conversation| %>
-        <%= link_to conversation_path(conversation), class:"conversation-home" do %>
-          <div class="avatar-correspondant-home">
-            <div class="avatar-mini">
-              <%= image_tag 'rabbit' %>
-            </div>
-          </div>
-          <div class="pseudo-correspondant-home">
-            <h2><%= conversation.users.where.not(id: current_user.id).first.pseudo %></h2>
-          </div>
-          <div class="notification-home">
-            <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
-          </div>
-        <% end %>
-      <% end %>
+    <div class="conversations-home" data-controller="home-conversations" data-home-conversations-target="items" data-home-conversations-conversation-id-value="66" data-home-conversations-user-id-value="<%= current_user.id %>">
+      <%= render "milts/conversations", conversations: @conversations, user: current_user %>
     </div>
   </div>
 

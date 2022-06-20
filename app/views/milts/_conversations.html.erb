@@ -1,0 +1,15 @@
+<% conversations.each do |conversation| %>
+  <%= link_to conversation_path(conversation), class:"conversation-home" do %>
+    <div class="avatar-correspondant-home">
+      <div class="avatar-mini">
+        <%= image_tag 'rabbit' %>
+      </div>
+    </div>
+    <div class="pseudo-correspondant-home">
+      <h2><%= conversation.correspondant(user).pseudo %></h2>
+    </div>
+    <div class="notification-home">
+      <%#= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+    </div>
+  <% end %>
+<% end %>

@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def home
-    @conversations = current_user.conversations
+    @conversations = current_user.conversations.ordered_by_time
     @participation = Participation.new
   end
 end

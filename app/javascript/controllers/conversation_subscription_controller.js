@@ -13,20 +13,23 @@ export default class extends Controller {
   static targets = ["milts", "count"]
 
   connect() {
-    console.log(this);
+    // console.log(this);
     this.miltsTarget.scrollTop = this.miltsTarget.scrollHeight
     this.channel = createConsumer().subscriptions.create({
       channel: "ConversationChannel",
       id: this.conversationIdValue
     }, {
       received: data => {
+        // console.log(data.sender_conversations);
         const parser = new DOMParser();
-        const document = parser.parseFromString(data.html, "text/html");
+        const document = parser.parseFromString(data.milt, "text/html");
         const milt = document.querySelector("div")
         this.#setClassForCurrentUser(milt, data)
         this.miltsTarget.appendChild(milt)
         this.miltsTarget.scrollTo(0, this.miltsTarget.scrollHeight)
-        this.countTarget.innerHTML = data.html2
+        if (data.user_id == this.userIdValue) {
+          this.countTarget.innerHTML = data.milts_count
+        }
       }
     })
     console.log(`Subscribed to the conversation with the id ${this.conversationIdValue}.`)

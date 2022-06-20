@@ -9,4 +9,16 @@ class User < ApplicationRecord
   has_many :milts, foreign_key: 'receiver_id'
 
   validates :pseudo, uniqueness: true
+
+  def correspondant(conversation)
+    conversation.users.where.not(id: self.id).first
+  end
+
+  # def correspondants
+  #   conversations.ordered_by_time.map { |conv| conv.correspondant(self) }
+  # end
+
+  # def correspondants_of_correspondants
+  #   correspondants.map(&:correspondants).flatten
+  # end
 end
