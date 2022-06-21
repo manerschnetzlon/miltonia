@@ -14,10 +14,12 @@
 - Front modal OK
 - Proteger form new conversation OK
 - Footer btn OK
+- Methode other participant OK
+- Value btn modal validation OK
+- Show OK
 
 - Definir systeme de points WIP
 
-- Show
 - Broadcast when new conversation
 - Reglages (logout)
 - Notifications
@@ -25,8 +27,5 @@
 - Avatar + couleur DB
 - Personnaliser Avatar
 - Rechargement Milts
+- Desactiver btn si 0 milts
 
-- Methode other participant
-- Methode mettre en forme other participant
-
-- Value btn modal validation

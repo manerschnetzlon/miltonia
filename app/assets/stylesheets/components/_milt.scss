@@ -1,5 +1,61 @@
-.milt-current-user {
+.milt {
+  height: 75px;
+  margin: 15px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
+
+  svg {
+    height: 100%;
+  }
+
+  i {
+    margin: 0 10px;
+    color: $miltonia-light-blue;
+    font-size: small;
+  }
+}
+
+.bulle-milt {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  .milt-in-bulle {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    svg {
+      height: 70%;
+    }
+    path {
+      fill: $miltonia-corail !important;
+    }
+  }
+  svg {
+    position: absolute;
+  }
+  path {
+    fill: $miltonia-ivory !important;
+  }
+}
+
+.milt-current-user {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  svg {
+    transform: scaleX(-1);
+  }
+  path {
+    fill: $miltonia-corail !important;
+  }
+  .milt-in-bulle path {
+    fill: $miltonia-ivory !important;
+  }
 }

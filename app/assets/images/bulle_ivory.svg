@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg515"
+   width="118.43055"
+   height="77.145798"
+   viewBox="0 0 118.43055 77.145798"
+   sodipodi:docname="Capture d’écran 2022-06-20 à 22.03.24.png"
+   inkscape:export-filename="bulle_ivory2.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs519" />
+  <sodipodi:namedview
+     id="namedview517"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="3.3966538"
+     inkscape:cx="15.161981"
+     inkscape:cy="75.22109"
+     inkscape:window-width="1440"
+     inkscape:window-height="847"
+     inkscape:window-x="208"
+     inkscape:window-y="1105"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g521" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g521"
+     transform="translate(-2.5336506,-6.6475525)">
+    <path
+       id="rect525"
+       style="fill:#fffdf6;fill-opacity:1;stroke-width:0.999999"
+       d="m 82.507418,6.6475527 c 21.305092,0 38.456782,17.1516893 38.456782,38.4567823 0,21.305092 -17.15169,38.456782 -38.456782,38.456782 H 48.642402 c -6.742762,0 -13.068281,-1.720728 -18.566964,-4.744629 L 2.5336506,83.793351 15.297711,64.309209 c -3.24813,-5.646078 -5.11209,-12.197853 -5.11209,-19.204874 0,-21.305093 17.151689,-38.4567823 38.456781,-38.4567823 z"
+       inkscape:export-filename="bulle_ivory3.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+</svg>
