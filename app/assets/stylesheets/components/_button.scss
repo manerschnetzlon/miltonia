@@ -21,6 +21,14 @@
   }
 }
 
+.btn-corail-inactive {
+  background-color: $miltonia-corail-light;
+
+  path {
+    fill: $miltonia-ivory;
+  }
+}
+
 .btn-blue {
   background-color: $miltonia-blue;
 }

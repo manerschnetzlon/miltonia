@@ -10,7 +10,7 @@ export default class extends Controller {
     conversationId: Number,
     userId: Number
   }
-  static targets = ["milts", "count"]
+  static targets = ["milts", "count", "btn"]
 
   connect() {
     // console.log(this);
@@ -20,7 +20,7 @@ export default class extends Controller {
       id: this.conversationIdValue
     }, {
       received: data => {
-        // console.log(data.sender_conversations);
+        console.log(data.footer);
         const parser = new DOMParser();
         const document = parser.parseFromString(data.milt, "text/html");
         const milt = document.querySelector("div")
