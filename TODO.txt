@@ -17,15 +17,14 @@
 - Methode other participant OK
 - Value btn modal validation OK
 - Show OK
+- Desactiver btn si 0 milts OK
+- Reglages (logout) OK
 
 - Definir systeme de points WIP
 
 - Broadcast when new conversation
-- Reglages (logout)
 - Notifications
 - Achivments
 - Avatar + couleur DB
 - Personnaliser Avatar
 - Rechargement Milts
-- Desactiver btn si 0 milts
-

@@ -10,7 +10,7 @@
     <% end %>
   <% end %>
 <% else %>
-  <div class="footer-btn btn-corail-inactive">
+  <div class="footer-btn btn-corail-inactive" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
     <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
   </div>
 <% end %>
@@ -24,7 +24,7 @@
   <%= link_to root_path, class:"footer-icon footer-icon-min col-2" do %>
     <%= render inline: Rails.root.join("app/assets/images/chart.svg").read %>
   <% end %>
-  <%= link_to root_path, class:"footer-icon footer-icon-min col-2" do %>
+  <%= link_to settings_path, class:"footer-icon footer-icon-min col-2" do %>
     <%= render inline: Rails.root.join("app/assets/images/gear.svg").read %>
   <% end %>
 </div>

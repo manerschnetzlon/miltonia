@@ -2,7 +2,7 @@
   <div class="container-home">
     <div class="top-home">
       <div class="infos-home col-3">
-        <h3><%= current_user.pseudo %></h3>
+        <h3><%#= current_user.pseudo %></h3>
       </div>
       <div class="avatar-big col-4">
         <%= image_tag 'chick' %>
@@ -54,7 +54,7 @@
     <%= link_to root_path, class:"footer-icon footer-icon-min col-2" do %>
       <%= render inline: Rails.root.join("app/assets/images/chart.svg").read %>
     <% end %>
-    <%= link_to root_path, class:"footer-icon footer-icon-min col-2" do %>
+    <%= link_to settings_path, class:"footer-icon footer-icon-min col-2" do %>
       <%= render inline: Rails.root.join("app/assets/images/gear.svg").read %>
     <% end %>
   </div>

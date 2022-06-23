@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="container-home">
+    <div class="top-home">
+      <div class="avatar-big col-4">
+        <%= image_tag 'chick' %>
+      </div>
+    </div>
+    <div class="body-settings">
+      <h2><%= link_to "> Log out", destroy_user_session_path, method: :delete %></h2>
+    </div>
+  </div>
+
+  <%= render 'shared/flashes' %>
+</div>
+
+<div class="footer">
+  <div class="footer-row row d-flex flex-row">
+    <%= link_to home_path, class:"footer-icon col-4 inactive-corail" do %>
+      <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+    <% end %>
+    <div class="footer-icon footer-icon-min col-4">
+    </div>
+    <%= link_to root_path, class:"footer-icon footer-icon-min col-2" do %>
+      <%= render inline: Rails.root.join("app/assets/images/chart.svg").read %>
+    <% end %>
+    <%= link_to settings_path, class:"footer-icon footer-icon-min active-corail col-2" do %>
+      <%= render inline: Rails.root.join("app/assets/images/gear.svg").read %>
+    <% end %>
+  </div>
+</div>

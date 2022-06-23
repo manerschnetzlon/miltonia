@@ -8,4 +8,7 @@ class PagesController < ApplicationController
     @conversations = current_user.conversations.ordered_by_time
     @participation = Participation.new
   end
+
+  def settings
+  end
 end

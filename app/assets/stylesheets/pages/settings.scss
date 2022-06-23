@@ -1,0 +1,14 @@
+.body-settings {
+  height: 25%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+
+  a {
+    font-family: 'Yellowtail';
+    font-size: larger;
+    color: $miltonia-blue;
+  }
+}
