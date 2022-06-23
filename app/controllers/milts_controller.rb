@@ -9,21 +9,22 @@ class MiltsController < ApplicationController
 
     respond_to do |format|
       if milt.save
+        # raise
         format.html do
           current_user.milts_count -= 1
           render "conversations/show", status: :unprocessable_entity unless current_user.save
           # sender_conversations = render_to_string(partial: "conversations", locals: { conversations: current_user.conversations.ordered_by_time, user: current_user })
-          receiver_conversations = render_to_string(partial: "conversations", locals: { conversations: conversation.correspondant(current_user).conversations.ordered_by_time, user: conversation.correspondant(current_user) })
-          milt = render_to_string(partial: "milt", locals: { milt: milt })
-          milts_count = render_to_string(partial: "counter_milts", locals: { current_user: current_user })
-          footer = render_to_string(partial: "footer_show", locals: { current_user: current_user, conversation: conversation, milt: milt })
+          partial_receiver_conversations = render_to_string(partial: "conversations", locals: { conversations: conversation.correspondant(current_user).conversations.ordered_by_time, user: conversation.correspondant(current_user) })
+          partial_milt = render_to_string(partial: "milt", locals: { milt: milt })
+          partial_milts_count = render_to_string(partial: "counter_milts", locals: { current_user: current_user })
+          partial_footer = render_to_string(partial: "footer_show", locals: { current_user: current_user, conversation: conversation, milt: milt })
           ConversationChannel.broadcast_to(
             conversation, {
-              milt: milt,
-              milts_count: milts_count,
+              milt: partial_milt,
+              milts_count: partial_milts_count,
               # sender_conversations: sender_conversations,
-              receiver_conversations: receiver_conversations,
-              footer: footer,
+              receiver_conversations: partial_receiver_conversations,
+              footer: partial_footer,
               correspondant_id: current_user.correspondant(conversation).id,
               user_id: current_user.id,
               conversation_id: conversation.id
@@ -32,7 +33,7 @@ class MiltsController < ApplicationController
         end
         format.json
       else
-        format.html { render "conversations/show", status: :unprocessable_entity }
+        format.html { render "conversations/show", status: :unprocessable_entity, locals: { current_user: current_user, conversation: Conversation.find(params[:conversation_id]), milt: Milt.new } }
         format.json
       end
     end

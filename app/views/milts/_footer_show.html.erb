@@ -1,5 +1,5 @@
 <% if current_user.milts_count.positive? %>
-  <%= simple_form_for [conversation, milt],
+  <%= simple_form_for [conversation, Milt.new],
       html: {class: "form-create-milt"}, remote: true do |f|
     %>
     <%= f.input :receiver_id, as: :hidden, input_html: { value: conversation.users.where.not(id: current_user.id).first.id } %>

@@ -20,7 +20,6 @@ export default class extends Controller {
       id: this.conversationIdValue
     }, {
       received: data => {
-        console.log(data.footer);
         const parser = new DOMParser();
         const document = parser.parseFromString(data.milt, "text/html");
         const milt = document.querySelector("div")
@@ -30,6 +29,7 @@ export default class extends Controller {
         if (data.user_id == this.userIdValue) {
           this.countTarget.innerHTML = data.milts_count
         }
+        this.btnTarget.innerHTML = data.footer
       }
     })
     console.log(`Subscribed to the conversation with the id ${this.conversationIdValue}.`)
