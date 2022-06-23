@@ -9,12 +9,14 @@ class MiltsController < ApplicationController
 
     respond_to do |format|
       if milt.save
-        # raise
+        MiltsUnseen.conversations(conversation, current_user).destroy_all
+        MiltsUnseen.create(user: current_user.correspondant(conversation), milt: milt)
+        # conversation.milts.where.not(id: milt.id).where(seen?: false).each { |m| m.update(seen?: true) }
         format.html do
           current_user.milts_count -= 1
           render "conversations/show", status: :unprocessable_entity unless current_user.save
           # sender_conversations = render_to_string(partial: "conversations", locals: { conversations: current_user.conversations.ordered_by_time, user: current_user })
-          partial_receiver_conversations = render_to_string(partial: "conversations", locals: { conversations: conversation.correspondant(current_user).conversations.ordered_by_time, user: conversation.correspondant(current_user) })
+          partial_receiver_conversations = render_to_string(partial: "conversations", locals: { conversations: conversation.correspondant(current_user).conversations.ordered_by_time, current_user: conversation.correspondant(current_user), user: current_user })
           partial_milt = render_to_string(partial: "milt", locals: { milt: milt })
           partial_milts_count = render_to_string(partial: "counter_milts", locals: { current_user: current_user })
           partial_footer = render_to_string(partial: "footer_show", locals: { current_user: current_user, conversation: conversation, milt: milt })

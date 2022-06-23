@@ -1,16 +1,17 @@
 <% conversations.each do |conversation| %>
-  <%= link_to conversation_path(conversation), class:"conversation-home #{conversation.notifications? ? 'notifications' : 'no-notifications'}" do %>
+  <%# user ||= conversation.correspondant(current_user) %>
+  <%= link_to conversation_path(conversation), class:"conversation-home #{conversation.notifications?(current_user) ? 'notifications' : 'no-notifications'}" do %>
     <div class="avatar-correspondant-home">
       <div class="avatar-mini">
         <%= image_tag 'rabbit' %>
       </div>
     </div>
     <div class="pseudo-correspondant-home">
-      <h2><%= conversation.correspondant(user).pseudo %></h2>
+      <h2><%= conversation.correspondant(current_user).pseudo %></h2>
     </div>
-    <% if conversation.notifications? %>
+    <% if conversation.notifications?(current_user) %>
       <div class="notification-home">
-        <%= conversation.notifications_count %>
+        <%= conversation.notifications_count(current_user) %>
       </div>
     <% end %>
   <% end %>

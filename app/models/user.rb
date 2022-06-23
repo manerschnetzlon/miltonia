@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :conversations, through: :participations
   has_many :milts, foreign_key: 'sender_id'
   has_many :milts, foreign_key: 'receiver_id'
+  has_many :milts_unseens, dependent: :destroy
 
   validates :pseudo, uniqueness: true
 

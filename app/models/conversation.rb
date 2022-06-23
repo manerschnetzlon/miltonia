@@ -13,12 +13,16 @@ class Conversation < ApplicationRecord
     users.where.not(id: user.id).first
   end
 
-  def notifications?
-    milts.where(seen?: false).count.positive?
+  def milts_unseens(user)
+    MiltsUnseen.where(user: user).where(milts: self.milts)
   end
 
-  def notifications_count
-    milts.where(seen?: false).count
+  def notifications?(user)
+    notifications_count(user).positive?
+  end
+
+  def notifications_count(user)
+    milts_unseens(user).count
   end
 
   # def conversations_of_correspondant(user)
