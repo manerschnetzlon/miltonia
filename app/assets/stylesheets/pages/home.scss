@@ -69,7 +69,6 @@
   overflow-y: scroll;
 
   .conversation-home {
-    background: $miltonia-blue;
     box-shadow: 0px 4px 20px #0F2B4F;
     border-radius: 68px;
     height: 65px;
@@ -82,7 +81,18 @@
   .conversation-home + .conversation-home {
     margin-top: 26px;
   }
+
+  .no-notifications {
+    background: $miltonia-ivory;
+    color: $miltonia-dark;
+  }
+
+  .notifications {
+    background: $miltonia-blue;
+    color: $miltonia-ivory;
+  }
 }
+
 
 .conversation-home:hover {
   background-color: $miltonia-light-blue;

@@ -13,6 +13,14 @@ class Conversation < ApplicationRecord
     users.where.not(id: user.id).first
   end
 
+  def notifications?
+    milts.where(seen?: false).count.positive?
+  end
+
+  def notifications_count
+    milts.where(seen?: false).count
+  end
+
   # def conversations_of_correspondant(user)
   #   correspondant(user).conversations
   #   .correspondants.map(&:correspondants).flatten

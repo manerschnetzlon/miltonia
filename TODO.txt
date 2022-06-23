@@ -19,12 +19,14 @@
 - Show OK
 - Desactiver btn si 0 milts OK
 - Reglages (logout) OK
+- Notifications Ok
 
 - Definir systeme de points WIP
 
 - Broadcast when new conversation
-- Notifications
 - Achivments
 - Avatar + couleur DB
 - Personnaliser Avatar
 - Rechargement Milts
+- Heroku
+- Effect send milt
