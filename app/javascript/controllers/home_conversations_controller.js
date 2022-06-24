@@ -13,7 +13,7 @@ export default class extends Controller {
   static targets = ["items"]
 
   connect() {
-    console.log(this.conversationsIdValue);
+    // console.log(this.conversationsIdValue);
     this.conversationsIdValue.forEach((conversationId) => {
       this.channel = createConsumer().subscriptions.create({
         channel: "ConversationChannel",

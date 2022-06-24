@@ -23,6 +23,7 @@
 
 - Definir systeme de points WIP
 
+- Insight page
 - Broadcast when new conversation
 - Achivments
 - Avatar + couleur DB
@@ -30,3 +31,4 @@
 - Rechargement Milts
 - Heroku
 - Effect send milt
+- No notification when correspondant on show page

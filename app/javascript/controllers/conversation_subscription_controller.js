@@ -20,6 +20,7 @@ export default class extends Controller {
       id: this.conversationIdValue
     }, {
       received: data => {
+        // console.log(data);
         const parser = new DOMParser();
         const document = parser.parseFromString(data.milt, "text/html");
         const milt = document.querySelector("div")

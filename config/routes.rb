@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#welcome'
   get 'home', to: 'pages#home'
+  get 'insight', to: 'pages#insight'
   get 'settings', to: 'pages#settings'
   resources :chatrooms, only: :show do
     resources :messages, only: :create

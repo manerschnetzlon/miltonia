@@ -17,3 +17,39 @@ $miltonia-green: #C6FBC9;
 $miltonia-middle: #A4E0CF;
 $miltonia-ivory: #FFFDF6;
 $miltonia-dark: #243A56;
+
+.bg-corail-light {
+  background-color: $miltonia-corail-light;
+}
+
+.bg-corail {
+  background-color: $miltonia-corail;
+}
+
+.bg-ivory {
+  background-color: $miltonia-ivory;
+}
+
+.bg-blue {
+  background-color: $miltonia-blue;
+}
+
+.corail-light, .corail-light path {
+  color: $miltonia-corail-light;
+  fill: $miltonia-corail-light;
+}
+
+.corail, .corail path {
+  color: $miltonia-corail;
+  fill: $miltonia-corail;
+}
+
+.ivory, .ivory path {
+  color: $miltonia-ivory;
+  fill: $miltonia-ivory;
+}
+
+.blue, .blue path {
+  color: $miltonia-blue;
+  fill: $miltonia-blue;
+}

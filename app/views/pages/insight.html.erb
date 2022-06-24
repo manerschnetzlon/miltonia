@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="container-home">
+    <div class="top-home">
+      <div class="avatar-big col-4">
+        <%= image_tag 'chick' %>
+      </div>
+    </div>
+    <div class="body-insight">
+
+      <div class="div-milts">
+        <i><p>You have :</p></i>
+        <div class="your-milts bg-corail">
+          <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+          <h3 class="ivory">
+            <%= current_user.milts_count %>
+          </h3>
+        </div>
+      </div>
+
+      <div class="div-milts">
+        <i><p>Next milts in :</p></i>
+        <div class="your-milts bg-corail-light">
+          <h3 class="ivory">4:31</h3>
+        </div>
+      </div>
+
+      <div class="div-milts">
+        <div class="milts-exchange">
+          <div class="received col-5">
+            <i><p>You received :</p></i>
+            <div class="your-milts-mini bg-ivory corail">
+              <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+              <h5 class="corail">
+                <%= current_user.milts_received_count %>
+              </h5>
+            </div>
+            <div class="btn-add-cagnotte bg-blue">
+              <%= render inline: Rails.root.join("app/assets/images/xmark.svg").read %>
+            </div>
+          </div>
+          <div class="sent col-5">
+            <i><p>You send :</p></i>
+            <div class="your-milts-mini bg-ivory corail">
+              <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+              <h5 class="corail">
+                <%= current_user.milts_sent_count %>
+              </h5>
+            </div>
+            <div class="btn-add-cagnotte bg-blue">
+              <%= render inline: Rails.root.join("app/assets/images/xmark.svg").read %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="div-milts">
+        <i><p>Cagnotte :</p></i>
+        <div class="your-milts-big bg-blue">
+          <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+          <h3 class="ivory">
+            <%= 0 %>
+          </h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <%= render 'shared/flashes' %>
+</div>
+
+<div class="footer">
+  <div class="footer-btn btn-light-blue" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <%= render inline: Rails.root.join("app/assets/images/xmark.svg").read %>
+  </div>
+  <div class="footer-row row d-flex flex-row">
+    <%= link_to home_path, class:"footer-icon col-4 inactive-corail" do %>
+      <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+    <% end %>
+    <div class="footer-icon footer-icon-min col-4">
+    </div>
+    <%= link_to root_path, class:"footer-icon footer-icon-min col-2 active-corail" do %>
+      <%= render inline: Rails.root.join("app/assets/images/chart.svg").read %>
+    <% end %>
+    <%= link_to settings_path, class:"footer-icon footer-icon-min col-2" do %>
+      <%= render inline: Rails.root.join("app/assets/images/gear.svg").read %>
+    <% end %>
+  </div>
+</div>

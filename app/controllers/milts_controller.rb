@@ -11,7 +11,6 @@ class MiltsController < ApplicationController
       if milt.save
         MiltsUnseen.conversations(conversation, current_user).destroy_all
         MiltsUnseen.create(user: current_user.correspondant(conversation), milt: milt)
-        # conversation.milts.where.not(id: milt.id).where(seen?: false).each { |m| m.update(seen?: true) }
         format.html do
           current_user.milts_count -= 1
           render "conversations/show", status: :unprocessable_entity unless current_user.save

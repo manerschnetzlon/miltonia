@@ -1,0 +1,91 @@
+.body-insight {
+  width: 100%;
+  height: 66%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  padding: 20px 20px;
+}
+
+.div-milts {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  margin: 5px 0 20px 0;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    margin-bottom: 6px;
+    color: $miltonia-ivory;
+  }
+}
+
+.your-milts, .your-milts-mini, .your-milts-big {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+
+  svg {
+    height: 70%;
+    fill: $miltonia-ivory;
+  }
+
+  h3 {
+    font-family: 'Yellowtail';
+    font-size: xxx-large;
+    margin: 10px;
+  }
+
+  h5 {
+    font-family: 'Yellowtail';
+    font-size: xx-large;
+    margin: 5px;
+  }
+}
+
+.your-milts {
+  width: 170px;
+  height: 75px;
+}
+
+.your-milts-mini {
+  width: 120px;
+  height: 60px;
+}
+
+.your-milts-big {
+  height: 100px;
+  width: 221px;
+}
+
+.milts-exchange {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+  .sent, .received {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+}
+
+.btn-add-cagnotte {
+  position: absolute;
+  display: flex;
+  border-radius: 100px;
+  height: 26px;
+  width: 26px;
+  align-items: center;
+  justify-content: center;
+  bottom: -13px;
+
+  svg {
+    height: 80%;
+    transform: rotate(45deg);
+  }
+}
