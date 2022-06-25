@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <div class="w-100" data-controller="milts-savings" data-milts-savings-target="exchangedMilts">
+      <div class="w-100" data-controller="milts-savings" data-milts-savings-target="exchangedMilts" data-milts-savings-conversations-id-value="<%= current_user.conversations.pluck(:id) %>" data-milts-savings-user-id-value="<%= current_user.id %>">
           <%= render "milts/exchange_milts", current_user: current_user %>
       </div>
 
@@ -44,7 +44,7 @@
     <% end %>
     <div class="footer-icon footer-icon-min col-4">
     </div>
-    <%= link_to root_path, class:"footer-icon footer-icon-min col-2 active-corail" do %>
+    <%= link_to insight_path, class:"footer-icon footer-icon-min col-2 active-corail" do %>
       <%= render inline: Rails.root.join("app/assets/images/chart.svg").read %>
     <% end %>
     <%= link_to settings_path, class:"footer-icon footer-icon-min col-2" do %>

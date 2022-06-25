@@ -34,6 +34,10 @@ $miltonia-dark: #243A56;
   background-color: $miltonia-blue;
 }
 
+.bg-blue-light {
+  background-color: $miltonia-light-blue;
+}
+
 .corail-light, .corail-light path {
   color: $miltonia-corail-light;
   fill: $miltonia-corail-light;
@@ -52,4 +56,9 @@ $miltonia-dark: #243A56;
 .blue, .blue path {
   color: $miltonia-blue;
   fill: $miltonia-blue;
+}
+
+.blue-light, .blue-light path {
+  color: $miltonia-light-blue;
+  fill: $miltonia-light-blue;
 }

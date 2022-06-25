@@ -8,7 +8,7 @@
           <%= current_user.milts_received_count %>
         </h5>
       </div>
-      <div class="btn-add-cagnotte bg-blue" data-action="click->milts-savings#addReceivedMilts">
+      <div class="btn-add-cagnotte <%= current_user.milts_received_count.positive? ? "bg-blue" : "bg-blue-light" %>"  data-action="click->milts-savings#addReceivedMilts">
         <%= render inline: Rails.root.join("app/assets/images/xmark.svg").read %>
       </div>
     </div>
@@ -20,7 +20,7 @@
           <%= current_user.milts_sent_count %>
         </h5>
       </div>
-      <div class="btn-add-cagnotte bg-blue" data-action="click->milts-savings#addSentMilts">
+      <div class="btn-add-cagnotte <%= current_user.milts_sent_count.positive? ? "bg-blue" : "bg-blue-light" %>" data-action="click->milts-savings#addSentMilts">
         <%= render inline: Rails.root.join("app/assets/images/xmark.svg").read %>
       </div>
     </div>

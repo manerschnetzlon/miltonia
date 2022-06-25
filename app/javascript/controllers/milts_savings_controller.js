@@ -1,15 +1,41 @@
+// import {
+//   Controller
+// } from "stimulus"
 import {
   Controller
-} from "stimulus"
+} from "@hotwired/stimulus"
+import {
+  createConsumer
+} from "@rails/actioncable"
 
 export default class extends Controller {
   static targets = ["sentMilts", "receivedMilts", "exchangedMilts"]
-
-  connect() {
+  static values = {
+    conversationsId: Array,
+    userId: Number
   }
 
-  addReceivedMilts() {
-    fetch('/add_received_milts', {
+  async connect() {
+    // console.log(this.conversationsIdValue);
+    // console.log(this.userIdValue);
+    // console.log(this.exchangedMiltsTarget);
+    this.conversationsIdValue.forEach((conversationId) => {
+      this.channel = createConsumer().subscriptions.create({
+        channel: "ConversationChannel",
+        id: conversationId
+      }, {
+        received: data => {
+          if (data.correspondant_id == this.userIdValue) {
+            this.exchangedMiltsTarget.innerHTML = data.exchange_milts
+          }
+        }
+      })
+      console.log(`Subscribed to the conversation with the id ${conversationId}.`)
+    })
+  }
+
+  async addReceivedMilts() {
+    await fetch('/add_received_milts', {
       method: 'GET',
       mode: 'cors',
       cache: 'no-cache',
@@ -20,16 +46,14 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        console.log(this.exchangedMiltsTarget);
-        console.log(data);
         if (data.update_milts_count) {
           this.exchangedMiltsTarget.innerHTML = data.update_milts_count
         }
       })
   }
 
-  addSentMilts() {
-    fetch('/add_sent_milts', {
+  async addSentMilts() {
+    await fetch('/add_sent_milts', {
         method: 'GET',
         mode: 'cors',
         cache: 'no-cache',

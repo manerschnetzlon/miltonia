@@ -20,10 +20,12 @@
 - Desactiver btn si 0 milts OK
 - Reglages (logout) OK
 - Notifications Ok
+- Insight page savings OK
+- Ajax insight when new milt
 
 - Definir systeme de points WIP
 
-- Insight page
+- Insight page next milts in
 - Broadcast when new conversation
 - Achivments
 - Avatar + couleur DB
