@@ -24,43 +24,8 @@
         </div>
       </div>
 
-      <div class="div-milts">
-        <div class="milts-exchange">
-          <div class="received col-5">
-            <i><p>You received :</p></i>
-            <div class="your-milts-mini bg-ivory corail">
-              <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
-              <h5 class="corail">
-                <%= current_user.milts_received_count %>
-              </h5>
-            </div>
-            <div class="btn-add-cagnotte bg-blue">
-              <%= render inline: Rails.root.join("app/assets/images/xmark.svg").read %>
-            </div>
-          </div>
-          <div class="sent col-5">
-            <i><p>You send :</p></i>
-            <div class="your-milts-mini bg-ivory corail">
-              <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
-              <h5 class="corail">
-                <%= current_user.milts_sent_count %>
-              </h5>
-            </div>
-            <div class="btn-add-cagnotte bg-blue">
-              <%= render inline: Rails.root.join("app/assets/images/xmark.svg").read %>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="div-milts">
-        <i><p>Cagnotte :</p></i>
-        <div class="your-milts-big bg-blue">
-          <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
-          <h3 class="ivory">
-            <%= 0 %>
-          </h3>
-        </div>
+      <div class="w-100" data-controller="milts-savings" data-milts-savings-target="exchangedMilts">
+          <%= render "milts/exchange_milts", current_user: current_user %>
       </div>
 
     </div>

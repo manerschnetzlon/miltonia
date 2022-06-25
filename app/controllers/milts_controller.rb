@@ -14,7 +14,6 @@ class MiltsController < ApplicationController
         format.html do
           current_user.milts_count -= 1
           render "conversations/show", status: :unprocessable_entity unless current_user.save
-          # sender_conversations = render_to_string(partial: "conversations", locals: { conversations: current_user.conversations.ordered_by_time, user: current_user })
           partial_receiver_conversations = render_to_string(partial: "conversations", locals: { conversations: conversation.correspondant(current_user).conversations.ordered_by_time, current_user: conversation.correspondant(current_user), user: current_user })
           partial_milt = render_to_string(partial: "milt", locals: { milt: milt })
           partial_milts_count = render_to_string(partial: "counter_milts", locals: { current_user: current_user })
@@ -38,30 +37,35 @@ class MiltsController < ApplicationController
         format.json
       end
     end
+  end
 
-    # respond_to do |format|
-    #   format.html do
-    #     if milt.save
-    #       current_user.milts_count -= 1
-    #       render "conversations/show", status: :unprocessable_entity unless current_user.save
-    #       html = render_to_string(partial: "milt", locals: { milt: milt })
-    #       html2 = render_to_string(partial: "counter_milts", locals: { current_user: current_user })
-    #       ConversationChannel.broadcast_to(
-    #         conversation, {
-    #           html: html,
-    #           html2: html2,
-    #           user_id: current_user.id,
-    #           conversation_id: conversation.id
-    #         }
-    #       )
-    #     else
-    #       render "conversations/show", status: :unprocessable_entity
-    #     end
-    #   end
-    # end
+  def add_received_milts
+    current_user.savings_count = current_user.savings_count + current_user.milts_received_count
+    current_user.milts_received_count = 0
+    respond_to do |format|
+      respond_to_when_add_milts(format)
+    end
+  end
+
+  def add_sent_milts
+    current_user.savings_count = current_user.savings_count + current_user.milts_sent_count
+    current_user.milts_sent_count = 0
+    respond_to do |format|
+      respond_to_when_add_milts(format)
+    end
   end
 
   private
+
+  def respond_to_when_add_milts(format)
+    if current_user.save
+      format.html { redirect_to insight_path }
+      format.json
+    else
+      format.html { render "pages/insight", status: :unprocessable_entity }
+      format.json
+    end
+  end
 
   def milt_params
     params.require(:milt).permit(:receiver_id)

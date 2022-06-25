@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'home', to: 'pages#home'
   get 'insight', to: 'pages#insight'
   get 'settings', to: 'pages#settings'
+  get 'add_received_milts', to: 'milts#add_received_milts'
+  get 'add_sent_milts', to: 'milts#add_sent_milts'
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
