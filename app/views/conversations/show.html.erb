@@ -17,12 +17,12 @@
             <%= image_tag 'chick' %>
           </div>
         </div>
-        <div class="milts-home active-svg col-3">
+        <%= link_to insight_path, class: "milts-home active-svg col-3" do %>
           <div data-conversation-subscription-target="count">
             <%= render "milts/counter_milts", current_user: current_user %>
           </div>
           <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
-        </div>
+        <% end %>
       </div>
       <div class="conversation-show">
         <div class="milts-show" data-conversation-subscription-target="milts">

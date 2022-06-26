@@ -7,10 +7,10 @@
       <div class="avatar-big col-4">
         <%= image_tag 'chick' %>
       </div>
-      <div class="milts-home active-svg col-3">
+      <%= link_to insight_path, class: "milts-home active-svg col-3" do %>
         <h3><%= current_user.milts_count %></h3>
         <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
-      </div>
+      <% end %>
     </div>
 
     <div class="conversations-home" data-controller="home-conversations" data-home-conversations-target="items" data-home-conversations-conversations-id-value="<%= current_user.conversations.pluck(:id) %>" data-home-conversations-user-id-value="<%= current_user.id %>">
