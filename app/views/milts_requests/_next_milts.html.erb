@@ -1,0 +1,17 @@
+<% if current_user.milts_requests.exists? && current_user.milts_requests.last.finished_date.future?  %>
+  <i><p>Next milts in :</p></i>
+  <div class="your-milts bg-corail-light">
+    <h3 class="ivory">
+      <% counting = ((current_user.milts_requests.last.finished_date - DateTime.now) / 1.minute).round %>
+      <%= "#{"%02d" % (counting / 60)}h#{"%02d" % (counting % 60)}" %>
+    </h3>
+  </div>
+<% else %>
+  <i><p>Add milts :</p></i>
+  <%= link_to milts_requests_path, method: :post do %>
+    <div class="your-milts bg-corail">
+      <h3 class="ivory ms-0 me-3">+8</h3>
+      <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
+    </div>
+  <% end %>
+<% end %>

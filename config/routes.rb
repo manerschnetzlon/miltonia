@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'settings', to: 'pages#settings'
   get 'add_received_milts', to: 'milts#add_received_milts'
   get 'add_sent_milts', to: 'milts#add_sent_milts'
+  get 'counting_up_to_new_milts', to: 'milts_requests#counting_up_to_new_milts'
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
@@ -14,5 +15,7 @@ Rails.application.routes.draw do
     resources :milts, only: :create
   end
   resources :participations, only: [:create]
+
+  resources :milts_requests, only: [:create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

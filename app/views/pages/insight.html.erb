@@ -5,7 +5,7 @@
         <%= image_tag 'chick' %>
       </div>
     </div>
-    <div class="body-insight">
+    <div class="body-insight" data-controller="milts-savings" >
 
       <div class="div-milts">
         <i><p>You have :</p></i>
@@ -17,14 +17,11 @@
         </div>
       </div>
 
-      <div class="div-milts">
-        <i><p>Next milts in :</p></i>
-        <div class="your-milts bg-corail-light">
-          <h3 class="ivory">4:31</h3>
-        </div>
+      <div class="div-milts" data-milts-savings-target="nextMilts">
+        <%= render "milts_requests/next_milts", current_user: current_user %>
       </div>
 
-      <div class="w-100" data-controller="milts-savings" data-milts-savings-target="exchangedMilts" data-milts-savings-conversations-id-value="<%= current_user.conversations.pluck(:id) %>" data-milts-savings-user-id-value="<%= current_user.id %>">
+      <div class="w-100" data-milts-savings-target="exchangedMilts" data-milts-savings-conversations-id-value="<%= current_user.conversations.pluck(:id) %>" data-milts-savings-user-id-value="<%= current_user.id %>">
           <%= render "milts/exchange_milts", current_user: current_user %>
       </div>
 
@@ -35,9 +32,9 @@
 </div>
 
 <div class="footer">
-  <div class="footer-btn btn-light-blue" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    <%= render inline: Rails.root.join("app/assets/images/xmark.svg").read %>
-  </div>
+  <%# <div class="footer-btn btn-light-blue"> %>
+    <%#= render inline: Rails.root.join("app/assets/images/xmark.svg").read %>
+  <%# </div> %>
   <div class="footer-row row d-flex flex-row">
     <%= link_to home_path, class:"footer-icon col-4 inactive-corail" do %>
       <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>

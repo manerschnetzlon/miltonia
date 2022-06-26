@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_24_201428) do
+ActiveRecord::Schema.define(version: 2022_06_26_124352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 2022_06_24_201428) do
     t.index ["conversation_id"], name: "index_milts_on_conversation_id"
     t.index ["receiver_id"], name: "index_milts_on_receiver_id"
     t.index ["sender_id"], name: "index_milts_on_sender_id"
+  end
+
+  create_table "milts_requests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "finished_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_milts_requests_on_user_id"
   end
 
   create_table "milts_unseens", force: :cascade do |t|
@@ -88,6 +96,7 @@ ActiveRecord::Schema.define(version: 2022_06_24_201428) do
   add_foreign_key "milts", "conversations"
   add_foreign_key "milts", "users", column: "receiver_id"
   add_foreign_key "milts", "users", column: "sender_id"
+  add_foreign_key "milts_requests", "users"
   add_foreign_key "milts_unseens", "milts"
   add_foreign_key "milts_unseens", "users"
   add_foreign_key "participations", "conversations"
