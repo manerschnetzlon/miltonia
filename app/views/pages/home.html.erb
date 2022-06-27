@@ -4,8 +4,8 @@
       <div class="infos-home col-3">
         <h3><%#= current_user.pseudo %></h3>
       </div>
-      <div class="avatar-big col-4">
-        <%= image_tag 'chick.png' %>
+      <div class="avatar-big bg-blue-light col-4">
+        <h6 class="big-emoji"><%= current_user.avatar.emoji %></h6>
       </div>
       <%= link_to insight_path, class: "milts-home active-svg col-3" do %>
         <h3><%= current_user.milts_count %></h3>

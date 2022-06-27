@@ -2,8 +2,8 @@
   <%# user ||= conversation.correspondant(current_user) %>
   <%= link_to conversation_path(conversation), class:"conversation-home #{conversation.notifications?(current_user) ? 'notifications' : 'no-notifications'}" do %>
     <div class="avatar-correspondant-home">
-      <div class="avatar-mini">
-        <%= image_tag 'rabbit.png' %>
+      <div class="avatar-mini bg-blue-light">
+        <h6 class="mini-emoji"><%= conversation.correspondant(current_user).avatar.emoji %></h6>
       </div>
     </div>
     <div class="pseudo-correspondant-home">

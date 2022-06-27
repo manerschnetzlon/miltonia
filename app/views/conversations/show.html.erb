@@ -5,16 +5,16 @@
     <div class="container-show" >
       <div class="top-show">
         <div class="infos-correspondant col-3">
-          <h3><%= @conversation.users.where.not(id: current_user.id).first.pseudo %></h3>
+          <h3 class="blue" ><%= current_user.correspondant(@conversation).pseudo %></h3>
         </div>
         <div class="avatar-correspondant-show">
-          <div class="avatar-big">
-            <%= image_tag 'rabbit.png' %>
+          <div class="avatar-big bg-blue">
+            <h6 class="big-emoji"><%= @conversation.correspondant(current_user).avatar.emoji %></h6>
           </div>
         </div>
         <div class="avatar-current-show">
-          <div class="avatar-middle">
-            <%= image_tag 'chick.png' %>
+          <div class="avatar-middle bg-blue-light">
+             <h6 class="middle-emoji"><%= current_user.avatar.emoji %></h6>
           </div>
         </div>
         <%= link_to insight_path, class: "milts-home active-svg col-3" do %>

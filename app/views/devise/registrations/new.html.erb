@@ -8,6 +8,10 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
+      <%= f.input :pseudo,
+                  required: true,
+                  autofocus: true %>
+      <%= f.association :avatar, collection: Avatar.all, label_method: :emoji, value_method: :id, include_blank: false %>
       <%= f.input :email,
                   required: true,
                   autofocus: true,

@@ -26,6 +26,7 @@
 - Insight page next milts in OK
 - Definir systeme de points WIP OK
 - Heroku OK
+- Avatar OK
 
 
 - Readme
@@ -33,7 +34,5 @@
 
 - Broadcast general when new conversation
 - Achivments
-- Avatar + couleur DB
-- Personnaliser Avatar
 - Effect send milt
 - No notification when correspondant on show page (channel general ?)

@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_27_093340) do
+ActiveRecord::Schema.define(version: 2022_06_27_132618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "avatars", force: :cascade do |t|
+    t.string "emoji"
+    t.integer "price", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "chatrooms", force: :cascade do |t|
     t.string "name"
@@ -88,6 +95,8 @@ ActiveRecord::Schema.define(version: 2022_06_27_093340) do
     t.integer "milts_count", default: 21
     t.integer "savings_count", default: 0
     t.boolean "first_milts_request_sent?", default: false
+    t.bigint "avatar_id"
+    t.index ["avatar_id"], name: "index_users_on_avatar_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -102,4 +111,5 @@ ActiveRecord::Schema.define(version: 2022_06_27_093340) do
   add_foreign_key "milts_unseens", "users"
   add_foreign_key "participations", "conversations"
   add_foreign_key "participations", "users"
+  add_foreign_key "users", "avatars"
 end

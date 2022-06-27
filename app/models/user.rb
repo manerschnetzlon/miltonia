@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :milts, foreign_key: 'receiver_id'
   has_many :milts_unseens, dependent: :destroy
   has_many :milts_requests, dependent: :destroy
+  belongs_to :avatar
 
   validates :pseudo, uniqueness: true
 

@@ -1,13 +1,14 @@
 <div class="container">
   <div class="container-home">
     <div class="top-home">
-      <div class="avatar-big col-4">
-        <%= image_tag 'chick.png' %>
+      <div class="avatar-big bg-blue-light col-4">
+        <h6 class="big-emoji"><%= current_user.avatar.emoji %></h6>
       </div>
     </div>
     <div class="body-insight" data-controller="milts-savings" >
 
       <div class="div-milts">
+        <h1 class="blue-light yellowtail mb-3">Hello <%= current_user.pseudo %></h1>
         <i><p>You have :</p></i>
         <div class="your-milts bg-corail">
           <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
