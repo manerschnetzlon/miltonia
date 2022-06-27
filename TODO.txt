@@ -22,16 +22,18 @@
 - Notifications Ok
 - Insight page savings OK
 - Ajax insight when new milt OK
+- Rechargement Milts OK
+- Insight page next milts in OK
+- Definir systeme de points WIP OK
 
-- Definir systeme de points WIP
 
-- Insight page next milts in
-- Broadcast when new conversation
+- Readme
+- Load only 50 milts and current user can see more when scroll
+- Heroku
+
+- Broadcast general when new conversation
 - Achivments
 - Avatar + couleur DB
 - Personnaliser Avatar
-- Rechargement Milts
-- Heroku
 - Effect send milt
-- No notification when correspondant on show page
-- Load only 50 milts and current user can see more when scroll
+- No notification when correspondant on show page (channel general ?)
