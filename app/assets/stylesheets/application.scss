@@ -38,3 +38,18 @@ a {
 .yellowtail {
   font-family: 'Yellowtail'
 }
+
+.signature {
+  position: absolute;
+  // bottom: 80px;
+  height: 35px;
+  width: 100%;
+  text-align: center;
+  &:hover {
+    color: $miltonia-blue;
+  }
+}
+
+.bottom-80 {
+  bottom: 80px;
+}

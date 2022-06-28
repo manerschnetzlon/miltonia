@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="container-home">
+  <div class="container-settings">
     <div class="top-home">
       <div class="avatar-big bg-blue-light col-4">
         <h6 class="big-emoji"><%= current_user.avatar.emoji %></h6>
@@ -9,10 +9,12 @@
       <h2><%= link_to "> Log out", destroy_user_session_path, method: :delete %></h2>
     </div>
   </div>
-
   <%= render 'shared/flashes' %>
 </div>
 
+<div class="footer-settings">
+  <%= link_to "By Maner ♥", "http://manonschnetzler.com", :target => "_blank", class: "signature blue-light bottom-80" %>
+</div>
 <div class="footer">
   <div class="footer-row row d-flex flex-row">
     <%= link_to home_path, class:"footer-icon col-4 inactive-corail" do %>
