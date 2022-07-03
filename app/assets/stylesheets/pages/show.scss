@@ -24,6 +24,7 @@
 .infos-correspondant {
   justify-content: flex-end;
 }
+
 .infos-current > .milts-home {
   width: 70%;
   display: flex;
@@ -31,9 +32,17 @@
   justify-content: space-between;
 }
 
+.avatars {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .avatar-correspondant-show {
   position: absolute;
-  left: calc(50vw - 25%);
+  left: calc(50vw - 100px);
   z-index: 1;
   .avatar-big {
     box-shadow: -5px 10px 30px #0f2b4f;
@@ -42,7 +51,7 @@
 
 .avatar-current-show {
   position: absolute;
-  right: calc(50vw - 25%);
+  right: calc(50vw - 100px);
   .avatar-big {
     box-shadow: -5px 10px 30px #0f2b4f;
   }
