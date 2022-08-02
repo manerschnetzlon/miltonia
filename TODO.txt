@@ -32,6 +32,7 @@
 
 
 - Load only 50 milts and current user can see more when scroll
+- 500 & 404 pages
 
 - Nouvelle conversation en cherchant l'utilisateur plutot que menu deroulant (par numero de telephone)
 - Broadcast general when new conversation

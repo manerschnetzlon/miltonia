@@ -20,16 +20,20 @@
           </div>
         </div>
         <%= link_to insight_path, class: "milts-home active-svg col-3" do %>
-          <div class="me-1" data-conversation-subscription-target="count">
+          <div data-conversation-subscription-target="count">
             <%= render "milts/counter_milts", current_user: current_user %>
           </div>
           <%= render inline: Rails.root.join("app/assets/images/milt.svg").read %>
         <% end %>
       </div>
       <div class="conversation-show">
-        <div class="milts-show" data-conversation-subscription-target="milts">
-          <% @milts.each do |milt| %>
-            <%= render "milts/milt", milt: milt %>
+        <div class="milts-show" data-conversation-subscription-target="milts" data-controller="load" data-load-conversation-id-value="<%= @conversation.id %>" data-load-counter-value="<%= @milts_load %>">
+          <% if @load_more %>
+            <div data-load-target='btn' data-action="click->load#load">LOAD MORE DIV</div>
+            <%= link_to "Load more link_to", conversation_path(@conversation, params: { load_more: @milts_load + 1}) %>
+          <% end %>
+          <% @milts.each_with_index do |milt, index| %>
+            <%= render "milts/milt", milt: milt, index: index %>
           <% end %>
         </div>
 

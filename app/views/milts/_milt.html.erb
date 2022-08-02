@@ -1,4 +1,4 @@
-<div id="milt-<%= milt.id %>" class= "milt<%= " milt-current-user" if milt.sender == current_user %>">
+<div id="milt-<%= milt.id %>" class= "milt<%= " milt-current-user" if milt.sender == current_user %><%= " first" if index == 0 %>">
   <%# if milt.sender == current_user %>
   <div class="bulle-milt">
     <%= render inline: Rails.root.join("app/assets/images/bulle-corail.svg").read %>
